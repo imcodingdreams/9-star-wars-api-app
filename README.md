@@ -2,7 +2,7 @@
 #
 
 ### DESCRIPTION
-This is an that acces the Star Wars API, to display the name, birthdate, height, mass, homeworld or species of Star Wars characters.
+This is an application that acces the Star Wars API, to display the name, birthdate, height, mass, homeworld or species of Star Wars characters.
 
 Click [here]() to see it live!
 
