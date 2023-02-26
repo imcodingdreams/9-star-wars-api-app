@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Button, FormControl, Row, Col, InputGroup } from 'react-bootstrap';
 
-function Form({ getCharacterInfo }) {
+function Form({ getCharacterInfo, filterValue, setFilterValue }) {
   return (
     <Container>
       <Row className="justify-content-center">
@@ -9,10 +9,13 @@ function Form({ getCharacterInfo }) {
           <InputGroup>
             <FormControl
               className='mb-3'
-              type='input'
-              id='characterName'
-              name='characerSearch'
+              //type='input'
+              // id='characterName'
+              // name='characerSearch'
               placeholder="Search a character"
+              type="text"
+              value={filterValue}
+              onChange={event => setFilterValue(event.target.value)}
             />
             <Button id='searchBtn' onClick={() => {
               getCharacterInfo()

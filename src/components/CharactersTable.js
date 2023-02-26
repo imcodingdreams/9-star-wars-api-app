@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Table, Col, Container } from 'react-bootstrap'
 
-function CharactersTable({ characterName, birthdate, height, mass, species } ) {
+function CharactersTable({ characterName, birthdate, height, mass, species, filteredData } ) {
   return (
     <Container>
       <Row className="justify-content-center">
@@ -20,22 +20,17 @@ function CharactersTable({ characterName, birthdate, height, mass, species } ) {
                 <th scope="col">Species</th>
               </tr>
             </thead>
-            <tbody>
-              <tr className="align-middle">
-                {/* <td>Luke Skywalker</td>
-                <td>19BBY</td>
-                <td>172</td>
-                <td>77</td>
-                <td>Tatooine</td>
-                <td>Human</td> */}
-                {/* <td>{ characterInfo }</td>
-                <td>{ characterSpecies }</td> */}
-                <td>{ characterName }</td>
-                <td>{ birthdate }</td>
-                <td>{ height }</td>
-                <td>{ mass }</td>
-                <td>{ species }</td>
-              </tr>
+            <tbody className="align-middle">
+                {filteredData.map(character => (
+                  <tr key={character.id}>
+                    <td>{character.name}</td>
+                    <td>{character.birth_year}</td>
+                    <td>{character.height}</td>
+                    <td>{character.mass}</td>
+                    <td>{character.homeworld}</td>
+                    <td>{character.species}</td>
+                  </tr>
+                ))}
             </tbody>
           </Table>
         </Col>
