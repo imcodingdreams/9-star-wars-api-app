@@ -21,7 +21,7 @@ function CharactersTable({ filteredData } ) {
                 <th scope="col">Species</th>
               </tr>
             </thead>
-            <tbody className="align-middle">
+            <tbody className="align-middle" id="loading" >
                 {filteredData.map(character => (
                   <tr key = {character.id}>
                     <td>{character.name}</td>
