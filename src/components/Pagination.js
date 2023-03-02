@@ -16,20 +16,20 @@ export const Pagination = () => {
 //   const [species, setSpecies] = useState([]);
 //   const [filterValue, setFilterValue] = useState('');
 
-//   useEffect(() => {
-//     const fetchCharacterData = async (character) => {
-//       const response = await axios.get('https://swapi.dev/api/people');
-//       setCharacterInfo(response.data.results);
-//       character.forEach(character => {
-//         const homeworldInfo = await axios.get(character.homeworld);
-//         setHomeworld(homeworldInfo.data.results);
-//       });
-//       character.forEach(character => {
-//         const speciesInfo = await axios.get(character.species);
-//         setSpecies(speciesInfo.data.results);
-//       });
-//       // const homeworldInfo = await axios.get(character.homeworld);
-//       // const speciesInfo = await axios.get(character.species);
+  useEffect(() => {
+    const fetchCharacterData = async (character) => {
+      const response = await axios.get('https://swapi.dev/api/people');
+      setCharacterInfo(response.data.results);
+      character.forEach(character => {
+        const homeworldInfo = await axios.get(character.homeworld);
+        setHomeworld(homeworldInfo.data.results);
+      });
+      character.forEach(character => {
+        const speciesInfo = await axios.get(character.species);
+        setSpecies(speciesInfo.data.results);
+      });
+      // const homeworldInfo = await axios.get(character.homeworld);
+      // const speciesInfo = await axios.get(character.species);
 
 //       // setHomeworld(homeworld.data.results);
 //       // setSpecies(species.data.results);
