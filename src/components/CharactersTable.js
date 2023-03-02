@@ -1,14 +1,15 @@
 import React from 'react'
 import { Row, Table, Col, Container } from 'react-bootstrap'
+//import { Pagination } from './Pagination';
 
-function CharactersTable({ characterName, birthdate, height, mass, species, filteredData } ) {
+function CharactersTable({ filteredData } ) {
   return (
     <Container>
       <Row className="justify-content-center">
         <Col xs={12} lg={9}>
           <Table className="mt-5" style={{
             textAlign: "center",
-            justifyContent: "center"
+            justifyContent: "center" 
           }}>
             <thead style={{}}>
               <tr>
@@ -22,7 +23,7 @@ function CharactersTable({ characterName, birthdate, height, mass, species, filt
             </thead>
             <tbody className="align-middle">
                 {filteredData.map(character => (
-                  <tr key={character.id}>
+                  <tr key = {character.id}>
                     <td>{character.name}</td>
                     <td>{character.birth_year}</td>
                     <td>{character.height}</td>
@@ -35,6 +36,7 @@ function CharactersTable({ characterName, birthdate, height, mass, species, filt
           </Table>
         </Col>
       </Row >
+      {/* <Pagination /> */}
     </Container >
   )
 }
