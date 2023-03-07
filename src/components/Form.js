@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, Button, FormControl, Row, Col, InputGroup } from 'react-bootstrap';
+import { Container, FormControl, Row, Col, InputGroup } from 'react-bootstrap';
 
-function Form({ filterValue, setFilterValue, handleAdditionalInfo }) {
+function Form({ filterValue, setFilterValue }) {
   return (
     <Container>
       <Row className="justify-content-center">

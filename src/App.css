@@ -6,3 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+#loading {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
