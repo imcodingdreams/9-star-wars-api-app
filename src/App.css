@@ -7,8 +7,14 @@
   pointer-events: none;
 }
 
-#loading {
+#loading, #error {
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#pagination {
+  margin: 30px;
   display: flex;
   justify-content: center;
 }

@@ -2,11 +2,10 @@
 import React from 'react'
 import { Row, Table, Col, Container } from 'react-bootstrap'
 
-function CharactersTable({ filteredData, isLoading }) {
+function CharactersTable({ filteredData, isLoading}) {
   if (isLoading === true) {
-    return <p id="loading" className="justify-content-right">Hold on, please. I'm still loading the data...</p>
-    
-  } else if (isLoading === false) {
+    return <p id="loading">Hold on, please. I'm still loading the data...</p>
+} else {
     return (
       <Container>
         <Row className="justify-content-center">
@@ -26,8 +25,8 @@ function CharactersTable({ filteredData, isLoading }) {
                 </tr>
               </thead>
               <tbody className="align-middle">
-                {filteredData.map(character => (
-                  <tr key={character.id}>
+                {filteredData.map((character, id)  => (
+                  <tr key={id}>
                     <td>{character.name}</td>
                     <td>{character.birth_year}</td>
                     <td>{character.height}</td>
