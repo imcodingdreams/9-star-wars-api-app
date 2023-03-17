@@ -17,4 +17,26 @@
   margin: 30px;
   display: flex;
   justify-content: center;
+} */
+
+.paginationBttns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 8%;
+  /* padding: 0%px; */
+  width: 80%;
+  height:40px;
+  list-style: none;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px, solid, black;
+  color: black;
+  cursor: pointer;
 }

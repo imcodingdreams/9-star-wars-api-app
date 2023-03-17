@@ -2,10 +2,10 @@
 import React from 'react'
 import { Row, Table, Col, Container } from 'react-bootstrap'
 
-function CharactersTable({ filteredData, isLoading}) {
+function CharactersTable({ characterData, isLoading }) {
   if (isLoading === true) {
     return <p id="loading">Hold on, please. I'm still loading the data...</p>
-} else {
+  } else {
     return (
       <Container>
         <Row className="justify-content-center">
@@ -14,7 +14,7 @@ function CharactersTable({ filteredData, isLoading}) {
               textAlign: "center",
               justifyContent: "center"
             }}>
-              <thead style={{}}>
+              <thead>
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">Birthdate</th>
@@ -25,7 +25,7 @@ function CharactersTable({ filteredData, isLoading}) {
                 </tr>
               </thead>
               <tbody className="align-middle">
-                {filteredData.map((character, id)  => (
+                {characterData.map((character, id) => (
                   <tr key={id}>
                     <td>{character.name}</td>
                     <td>{character.birth_year}</td>
@@ -41,6 +41,9 @@ function CharactersTable({ filteredData, isLoading}) {
         </Row >
         {/* <Pagination /> */}
       </Container >
+
+
+
     )
   }
 }
