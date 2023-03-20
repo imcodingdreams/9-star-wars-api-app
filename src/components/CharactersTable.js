@@ -2,6 +2,7 @@
 import React from 'react'
 import { Row, Table, Col, Container } from 'react-bootstrap'
 
+
 function CharactersTable({ characterData, isLoading }) {
   if (isLoading === true) {
     return <p id="loading">Hold on, please. I'm still loading the data...</p>
@@ -39,7 +40,6 @@ function CharactersTable({ characterData, isLoading }) {
             </Table>
           </Col>
         </Row >
-        {/* <Pagination /> */}
       </Container >
     )
   }

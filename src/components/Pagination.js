@@ -1,7 +1,8 @@
+
 import React from "react";
 
 
-function Pagination({ currentPage, count, setCurrentPage}) {
+function Pagination({ currentPage, count, setCurrentPage }) {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(count / 10); i++) {
     pageNumbers.push(i);
