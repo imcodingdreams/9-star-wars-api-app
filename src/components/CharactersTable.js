@@ -41,9 +41,6 @@ function CharactersTable({ characterData, isLoading }) {
         </Row >
         {/* <Pagination /> */}
       </Container >
-
-
-
     )
   }
 }

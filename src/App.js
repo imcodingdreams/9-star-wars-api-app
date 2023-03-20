@@ -10,48 +10,20 @@ import Pagination from './components/Pagination';
 function App() {
   const [characterData, setCharacterData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
- // const [filterValue, setFilterValue] = useState('');
-  const [urlData, setUrlData] = useState('https://swapi.dev/api/people/');
+  const urlData = 'https://swapi.dev/api/people/?search=';
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages=[9]
-  //const itemsPerPage = 10;
-  // const totalItems = 100;
-  //const [pages, setPages] = useState([])
-  //const baseURL = "https://swapi.dev/api/people/"
-  // const [pageCount, setPageCount] = useState(0);
-  // const [currentPage, setCurrentPage] = useState(1);
-  const [previousPage, setPreviousPage] = useState('');
-  const [nextPage, setNextPage] = useState('');
-  const charactersPerPage = (10);
-  const indexOfLastItem = currentPage * charactersPerPage;
-  const indexOfFirstItem = indexOfLastItem - charactersPerPage;
-
-  // const itemsToDisplay = characterData.slice(indexOfFirstItem, indexOfLastItem);
-  // const handlePageChange = (pageNumber) => {
-  //   setCurrentPage(pageNumber);
-  // };
-
-
-  useEffect(() => {
-  const getPages = async (searchInput) => {
-    const response = await axios.get(`${urlData}?page=${currentPage}`);
-    let nextPage = response.data.next;
-    console.log(`Next page: ${nextPage}`)
-    console.log(`Get pages: ${response}`)
-  }
-  getPages();
-}, []);
-
-
+  const [count, setCount] = useState('')
+  
   async function getCharactersData() {
     try {
 
       setIsLoading(true);
-      //console.log('Line 28');
-      const response = await axios.get(urlData);
-      setNextPage(response.data.next)
-      setPreviousPage(response.data.previous)
-      console.log(response);
+      
+      const response = await axios.get(`${urlData}&page=${currentPage}`);
+      setCount(response.data.count)
+      console.log(`Response: ${response}`);
+      console.log(`Current page: ${currentPage}`)
 
       for (const character of response.data.results) {
         const homeworld = await axios.get(character.homeworld);
@@ -76,31 +48,31 @@ function App() {
     }
   }
 
-  console.log(characterData);
+  console.log(`Character data: ${characterData}`);
   
   useEffect(() => {
     getCharactersData();
-  }, [urlData]);
-
-  // const changePageClick = async (data) => {
-  //   console.log(data);
-  //   setUrlData(`${urlData}?page=${data.selected + 1}`)
-  // }
+    // getCharacter()
+  }, [currentPage]);
 
   return (
     <div>
       <Header />
       <Form 
-        //changePageClick={changePageClick}
+        // getCharacter={getCharacter}
       />
       <CharactersTable 
         characterData={characterData}
         isLoading={isLoading} 
         />
       <Pagination
+        count={count}
         currentPage={currentPage}
         totalPages={totalPages}
-        //onPageChange={handlePageChange}
+        setCurrentPage={setCurrentPage}
+        urlData={urlData}
+        // getCharacter={getCharacter}
+        //currentPage={handlePageChange}
       />
     </div>
   );
