@@ -1,23 +1,31 @@
-.App {
-  text-align: center;
+.background {
+  /* background-image: url("./images/2-black-galaxy-background.jpeg"); */
+  background-repeat: "no-repeat";
+  background: linear-gradient(to top, #040404, #000000, #2c3e50);
+  width: 100%;
+  height: auto;
+  /* background-position: 100%; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li :disabled {
+  color: rgb(138, 23, 23) !important;
+}
+li :active {
+  color: rgb(42, 17, 17) !important;
 }
 
-#loading, #error {
+#loading {
   margin-top: 50px;
   display: flex;
   justify-content: center;
+  color: darkkhaki;
 }
 
 #pagination {
   margin: 30px;
   display: flex;
   justify-content: center;
-} */
+}
 
 .paginationBttns {
   display: flex;
@@ -26,9 +34,8 @@
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 8%;
-  /* padding: 0%px; */
   width: 80%;
-  height:40px;
+  height: 40px;
   list-style: none;
 }
 
@@ -39,4 +46,23 @@
   border: 1px, solid, black;
   color: black;
   cursor: pointer;
+}
+
+/* li .page-item .disabled {
+  color: black;
+  background-color: darkkhaki;
+}
+
+button.page-link {
+  background-color: darkkhaki;
+} */
+
+li .page-item disabled {
+  background-color: black;
+  color: gray;
+}
+
+.pagination li {
+  background-color: black;
+  color: gray;
 }

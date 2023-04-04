@@ -17,13 +17,13 @@ function App() {
   
 
 
-  // async function getPlanetAndSpecies(response) {
+  // function getPlanetAndSpecies(response) {
   //   for (const character of response.data.results) {
-  //     const homeworld = await axios.get(character.homeworld);
+  //     const homeworld = axios.get(character.homeworld);
   //     character.homeworld = homeworld.data.name;
   //   }
   //   for (const character of response.data.results) {
-  //     const species = await axios.get(character.species);
+  //     const species = axios.get(character.species);
   //     if (character.species.length === 0) {
   //       character.species = 'Human';
   //     } else {
@@ -40,7 +40,7 @@ function App() {
       setIsLoading(true);
 
       const response = await axios.get(`${urlData}&page=${currentPage}`);
-      setCount(response.data.count)
+      setCount(response.data.count);
 
       for (const character of response.data.results) {
         const homeworld = await axios.get(character.homeworld);
@@ -77,11 +77,13 @@ function App() {
   }, [currentPage]);
 
   return (
-    <div>
+    <div className='background'>
       <Header />
       <Form
       //getCharacter={getCharacter}
         setCharacterData={setCharacterData}
+        urlData={urlData}
+        //getCharactersData={getCharactersData}
         //getPlanetAndSpecies={getPlanetAndSpecies}
         // searchResult={searchResult}
         // setSearchResult={setSearchResult}

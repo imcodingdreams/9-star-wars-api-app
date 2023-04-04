@@ -11,12 +11,13 @@ function CharactersTable({ characterData, isLoading }) {
       <Container>
         <Row className="justify-content-center">
           <Col xs={12} lg={9}>
-            <Table className="mt-5" style={{
+            <Table style={{
               textAlign: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              marginTop: "50px"
             }}>
               <thead>
-                <tr>
+                <tr style={{ color: "SeaShell" }}>
                   <th scope="col">Name</th>
                   <th scope="col">Birthdate</th>
                   <th scope="col">Height</th>
@@ -25,7 +26,7 @@ function CharactersTable({ characterData, isLoading }) {
                   <th scope="col">Species</th>
                 </tr>
               </thead>
-              <tbody className="align-middle">
+              <tbody className="align-middle" style={{ color: "DarkKhaki" }}>
                 {characterData.map((character, id) => (
                   <tr key={id}>
                     <td>{character.name}</td>
