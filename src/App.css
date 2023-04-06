@@ -1,18 +1,19 @@
-.background {
-  /* background-image: url("./images/2-black-galaxy-background.jpeg"); */
+body {
+  background-image: url("./images/2-black-galaxy-background.jpeg");
+  /* background: linear-gradient(to top, #040404, #000000, #2c3e50); */
+  /* width: 100%; */
+  height: 100%;
+  /* margin: 0; */
   background-repeat: "no-repeat";
-  background: linear-gradient(to top, #040404, #000000, #2c3e50);
-  width: 100%;
-  height: auto;
-  /* background-position: 100%; */
+  background-position: center;
+  background-size: cover;
 }
 
-li :disabled {
-  color: rgb(138, 23, 23) !important;
-}
-li :active {
-  color: rgb(42, 17, 17) !important;
-}
+/* html {
+  background-color: #040404;
+  /* background: linear-gradient(to top, #040404, #000000, #2c3e50); */
+/* } */
+
 
 #loading {
   margin-top: 50px;
@@ -27,42 +28,11 @@ li :active {
   justify-content: center;
 }
 
-.paginationBttns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-left: 8%;
-  width: 80%;
-  height: 40px;
-  list-style: none;
-}
+.active > .page-link  {
+  color: black !important;
+  background-color: darkkhaki !important;
+} 
 
-.paginationBttns a {
-  padding: 10px;
-  margin: 8px;
-  border-radius: 5px;
-  border: 1px, solid, black;
+li .page-link {
   color: black;
-  cursor: pointer;
-}
-
-/* li .page-item .disabled {
-  color: black;
-  background-color: darkkhaki;
-}
-
-button.page-link {
-  background-color: darkkhaki;
-} */
-
-li .page-item disabled {
-  background-color: black;
-  color: gray;
-}
-
-.pagination li {
-  background-color: black;
-  color: gray;
 }

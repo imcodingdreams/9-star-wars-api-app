@@ -14,7 +14,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const urlData = 'https://swapi.dev/api/people/?search=';
   const totalPages = [9]
-  
+
 
 
   // function getPlanetAndSpecies(response) {
@@ -33,18 +33,26 @@ function App() {
   //   }
   // }
 
+  async function returnHomeworldNamefromCharacter(character) {
+    const homeworld = await axios.get(character.homeworld);
+    return homeworld.data.name;
+  }
 
-  async function getCharactersData() {
+  async function getCharactersData(inputValue = null) {
     try {
 
       setIsLoading(true);
+      let response;
+      if (inputValue === null) {
+        response = await axios.get(`${urlData}&page=${currentPage}`);
+      } else {
+        response = await axios.get(`${urlData}${inputValue}`);
+      }
 
-      const response = await axios.get(`${urlData}&page=${currentPage}`);
       setCount(response.data.count);
 
       for (const character of response.data.results) {
-        const homeworld = await axios.get(character.homeworld);
-        character.homeworld = homeworld.data.name;
+        character.homeworld = await returnHomeworldNamefromCharacter(character)
       }
       for (const character of response.data.results) {
         const species = await axios.get(character.species);
@@ -59,7 +67,7 @@ function App() {
 
       setCharacterData(response.data.results);
 
-     // getPlanetAndSpecies(response);
+      // getPlanetAndSpecies(response);
 
     } catch (error) {
       console.log(error);
@@ -71,22 +79,23 @@ function App() {
 
   useEffect(() => {
     getCharactersData();
-   // getPlanetAndSpecies();
+    // getPlanetAndSpecies();
 
     // getCharacter()
   }, [currentPage]);
 
   return (
-    <div className='background'>
+    <div>
       <Header />
       <Form
-      //getCharacter={getCharacter}
+        //getCharacter={getCharacter}
         setCharacterData={setCharacterData}
         urlData={urlData}
-        //getCharactersData={getCharactersData}
-        //getPlanetAndSpecies={getPlanetAndSpecies}
-        // searchResult={searchResult}
-        // setSearchResult={setSearchResult}
+        getCharactersData={getCharactersData}
+      //getCharactersData={getCharactersData}
+      //getPlanetAndSpecies={getPlanetAndSpecies}
+      // searchResult={searchResult}
+      // setSearchResult={setSearchResult}
       />
       <CharactersTable
         characterData={characterData}

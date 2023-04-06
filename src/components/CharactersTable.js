@@ -17,7 +17,7 @@ function CharactersTable({ characterData, isLoading }) {
               marginTop: "50px"
             }}>
               <thead>
-                <tr style={{ color: "SeaShell" }}>
+                <tr style={{ color:"rgb(249, 245, 245" }}>
                   <th scope="col">Name</th>
                   <th scope="col">Birthdate</th>
                   <th scope="col">Height</th>

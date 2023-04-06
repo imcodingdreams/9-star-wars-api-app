@@ -7,24 +7,24 @@ import { Container, FormControl, Row, Col, InputGroup, Button } from 'react-boot
 
 function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, getCharactersData }) {
 
- // const [searchResult, setSearchResult] = useState([]);
+
+
+  function handleButton() {
+    getCharactersData(document.getElementById('searchInput').value)
+  }
 
   async function getCharacter() {
     const inputValue = document.getElementById('searchInput').value;
     const response = await axios.get(`${urlData}${inputValue}`);
 
-    //setSearchResult(response.data.results);
     setCharacterData(response.data.results);
-    
-    //getPlanetAndSpecies(response)
 
     console.log(`Response: ${response}`);
     console.log(`Input value: ${inputValue}`);
-    //console.log(`Search result: ${searchResult}`)
     console.log(`Url data: ${urlData}`)
   }
-  
-  function clearInput () {
+
+  function clearInput() {
     document.getElementById('searchInput').value = "";
   }
 
@@ -33,22 +33,23 @@ function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, ge
       <Row className="justify-content-center">
         <Col xs={8} lg={6}>
           <InputGroup>
-            <FormControl 
-              id='searchInput' 
-              type="text" 
-              placeholder="Search a character" 
-              className='mb-3' 
+            <FormControl
+              id='searchInput'
+              type="text"
+              placeholder="Search a character"
+              className='mb-3'
               style={{
                 height: "38px",
                 width: "80px",
                 marginLeft: "10px",
-                backgroundColor: "SeaShell",
+                backgroundColor: "rgb(249, 245, 245",
                 borderColor: "black",
-                color: "black" 
-            }}
+                color: "black"
+              }}
             />
             <Button id='searchBtn' onClick={() => {
-              getCharacter();
+              handleButton();
+              //getCharactersData();
               clearInput();
             }} style={{
               height: "38px",
@@ -56,7 +57,7 @@ function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, ge
               textAlign: "center",
               marginLeft: "10px",
               backgroundColor: "DarkKhaki",
-              borderColor: "black", 
+              borderColor: "black",
               color: "black"
             }}>Search</Button>
           </InputGroup>
