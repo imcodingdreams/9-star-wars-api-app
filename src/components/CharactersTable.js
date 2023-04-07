@@ -5,7 +5,8 @@ import { Row, Table, Col, Container } from 'react-bootstrap'
 
 function CharactersTable({ characterData, isLoading }) {
   if (isLoading === true) {
-    return <p id="loading">Hold on, please. I'm still loading the data...</p>
+    return <p className="loading"
+      style={{ marginTop: "50px", display: "flex", justifyContent: "center", color: "darkkhaki" }}>Hold on, please. I'm still loading the data...</p>
   } else {
     return (
       <Container>
@@ -17,7 +18,7 @@ function CharactersTable({ characterData, isLoading }) {
               marginTop: "50px"
             }}>
               <thead>
-                <tr style={{ color:"rgb(249, 245, 245" }}>
+                <tr style={{ color: "rgb(249, 245, 245" }}>
                   <th scope="col">Name</th>
                   <th scope="col">Birthdate</th>
                   <th scope="col">Height</th>

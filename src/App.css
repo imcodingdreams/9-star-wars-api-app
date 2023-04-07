@@ -1,38 +1,34 @@
 body {
   background-image: url("./images/2-black-galaxy-background.jpeg");
   /* background: linear-gradient(to top, #040404, #000000, #2c3e50); */
-  /* width: 100%; */
   height: 100%;
-  /* margin: 0; */
+  min-height: 1000px;
   background-repeat: "no-repeat";
   background-position: center;
   background-size: cover;
 }
 
-/* html {
-  background-color: #040404;
-  /* background: linear-gradient(to top, #040404, #000000, #2c3e50); */
-/* } */
-
-
-#loading {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  color: darkkhaki;
+button.page-link,
+button.page-item {
+  background-color: "rgb(249, 245, 245";
+  border-color: gray;
+  color: black;
+  box-shadow: none !important;
 }
 
-#pagination {
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.active > .page-link  {
+.active > .page-link {
   color: black !important;
   background-color: darkkhaki !important;
-} 
+  border-color: gray !important;
+  box-shadow: none !important;
+}
 
-li .page-link {
-  color: black;
+.page-link:hover {
+  background-color: lightgray !important;
+  border-color: gray !important;
+  color: #000000 !important;
+}
+
+button:focus {
+  color: black !important;
 }

@@ -1,13 +1,9 @@
 
-
-import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Container, FormControl, Row, Col, InputGroup, Button } from 'react-bootstrap';
 
 
-function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, getCharactersData }) {
-
-
+function Form({ urlData, setCharacterData, getCharactersData }) {
 
   function handleButton() {
     getCharactersData(document.getElementById('searchInput').value)
@@ -18,10 +14,6 @@ function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, ge
     const response = await axios.get(`${urlData}${inputValue}`);
 
     setCharacterData(response.data.results);
-
-    console.log(`Response: ${response}`);
-    console.log(`Input value: ${inputValue}`);
-    console.log(`Url data: ${urlData}`)
   }
 
   function clearInput() {
@@ -49,7 +41,6 @@ function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, ge
             />
             <Button id='searchBtn' onClick={() => {
               handleButton();
-              //getCharactersData();
               clearInput();
             }} style={{
               height: "38px",
@@ -67,4 +58,4 @@ function Form({ getCharacter, urlData, getPlanetAndSpecies, setCharacterData, ge
   )
 }
 
-export default Form
+export default Form;

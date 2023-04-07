@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
@@ -14,24 +15,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const urlData = 'https://swapi.dev/api/people/?search=';
   const totalPages = [9]
-
-
-
-  // function getPlanetAndSpecies(response) {
-  //   for (const character of response.data.results) {
-  //     const homeworld = axios.get(character.homeworld);
-  //     character.homeworld = homeworld.data.name;
-  //   }
-  //   for (const character of response.data.results) {
-  //     const species = axios.get(character.species);
-  //     if (character.species.length === 0) {
-  //       character.species = 'Human';
-  //     } else {
-  //       character.species = species.data.name;
-  //     }
-  //     setCharacterData(response.data.results);
-  //   }
-  // }
 
   async function returnHomeworldNamefromCharacter(character) {
     const homeworld = await axios.get(character.homeworld);
@@ -67,8 +50,6 @@ function App() {
 
       setCharacterData(response.data.results);
 
-      // getPlanetAndSpecies(response);
-
     } catch (error) {
       console.log(error);
       console.log("Oops! Something went wrong!");
@@ -79,23 +60,15 @@ function App() {
 
   useEffect(() => {
     getCharactersData();
-    // getPlanetAndSpecies();
-
-    // getCharacter()
   }, [currentPage]);
 
   return (
     <div>
       <Header />
       <Form
-        //getCharacter={getCharacter}
         setCharacterData={setCharacterData}
         urlData={urlData}
         getCharactersData={getCharactersData}
-      //getCharactersData={getCharactersData}
-      //getPlanetAndSpecies={getPlanetAndSpecies}
-      // searchResult={searchResult}
-      // setSearchResult={setSearchResult}
       />
       <CharactersTable
         characterData={characterData}
@@ -107,7 +80,6 @@ function App() {
         totalPages={totalPages}
         setCurrentPage={setCurrentPage}
         urlData={urlData}
-      //getCharacter={getCharacter}
       />
     </div>
   );

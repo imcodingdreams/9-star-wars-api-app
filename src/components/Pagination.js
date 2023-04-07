@@ -9,7 +9,10 @@ function Pagination({ currentPage, count, setCurrentPage }) {
   }
 
   return (
-    <div id="pagination" style={{ paddingBottom: "30px", marginBottom: "0px" }}>
+    <div
+      className="pagination-container"
+      style={{ margin: "30px", display: "flex", justifyContent: "center", paddingBottom: "30px", marginBottom: "0px" }}
+    >
       <nav>
         <ul
           className="pagination"
@@ -17,7 +20,6 @@ function Pagination({ currentPage, count, setCurrentPage }) {
           <li
             className={currentPage === 1 ? "page-item disabled" : "page-item"}>
             <button
-              style={{ backgroundColor: "rgb(249, 245, 245" }}
               className="page-link"
               onClick={() => setCurrentPage(currentPage - 1)}>Previous
             </button>
@@ -27,8 +29,8 @@ function Pagination({ currentPage, count, setCurrentPage }) {
               key={number}
               className={currentPage === number ? "page-item active" : "page-item"}>
               <button
-                style={{ backgroundColor: "rgb(249, 245, 245", borderColor: "gray", color: "black" }}
                 className="page-link"
+                style={{ backgroundColor: "rgb(249, 245, 245", borderColor: "gray", color: "black" }}
                 onClick={() => setCurrentPage(number)}>{number}
               </button>
             </li>
@@ -36,7 +38,7 @@ function Pagination({ currentPage, count, setCurrentPage }) {
           <li
             className={currentPage === 9 ? "page-item disabled" : "page-item"}>
             <button
-              style={{ backgroundColor: "rgb(249, 245, 245" }} className="page-link"
+              className="page-link"
               onClick={() => setCurrentPage(currentPage + 1)}>Next
             </button>
           </li>
